@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Illawarra Tool Co. — Tool Hire</title>
+    <meta name="description" content="Illawarra Tool Co. — Local tool hire. Affordable, reliable, Wollongong pickup & delivery." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* ====== Design Tokens (easy to tweak) ====== */
+      :root{
+        --rust:#9E4E2C;      /* matches logo vibe */
+        --rust-dark:#7F3D22;
+        --cream:#FAF5EE;     /* warm background */
+        --moss:#6E7F59;      /* subtle accents */
+        --charcoal:#2E2E2E;  /* body text */
+        --card:#FFFFFF;      /* cards */
+        --radius:18px;
+        --shadow:0 10px 20px rgba(0,0,0,.06);
+      }
+      *{box-sizing:border-box}
+      html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--charcoal);background:var(--cream)}
+      img{max-width:100%;display:block}
+      a{color:inherit;text-decoration:none}
+      .container{width:min(1120px,92vw);margin-inline:auto}
+      .btn{display:inline-block;background:var(--rust);color:#fff;padding:12px 18px;border-radius:999px;font-weight:600;transition:transform .04s ease, background .2s ease}
+      .btn:hover{background:var(--rust-dark);transform:translateY(-1px)}
+      header{position:sticky;top:0;z-index:10;background:rgba(250,245,238,.75);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid rgba(0,0,0,.05)}
+      .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+      .brand{display:flex;align-items:center;gap:12px}
+      .brand img{width:46px;height:46px;object-fit:contain;border-radius:8px}
+      .brand h1{font-family:Oswald,Inter,sans-serif;font-size:1.25rem;letter-spacing:.02em;margin:0}
+      nav a{padding:8px 10px;border-radius:8px}
+      nav a:hover{background:rgba(0,0,0,.05)}
+
+      /* Hero */
+      .hero{padding:64px 0 32px}
+      .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+      .hero h2{font-family:Oswald,Inter,sans-serif;font-weight:700;font-size:clamp(2rem, 4vw + 1rem, 3.25rem);line-height:1.05;margin:0 0 10px;color:var(--rust)}
+      .hero p{font-size:1.05rem;margin:0 0 18px;opacity:.9}
+      .hero-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;border:1px solid rgba(0,0,0,.06)}
+      .hero-bullets{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:10px;margin:12px 0}
+      .bullet{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:14px;padding:10px}
+      .bullet span{font-weight:700;color:var(--rust)}
+
+      /* Gallery */
+      section{scroll-margin-top:80px}
+      .section{padding:44px 0}
+      .section h3{font-family:Oswald,Inter,sans-serif;font-size:2rem;margin:0 0 16px}
+      .section p.lead{margin:0 0 18px;opacity:.9}
+      .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+      .card{grid-column:span 4;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.06);overflow:hidden}
+      .card .content{padding:14px}
+      .card h4{margin:0 0 6px;font-size:1.05rem}
+      .pill{display:inline-block;background:rgba(110,127,89,.1);color:var(--moss);border:1px solid rgba(110,127,89,.22);padding:2px 8px;border-radius:999px;font-size:.8rem}
+
+      /* Testimonials */
+      .testi{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+      .quote{grid-column:span 6;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;border:1px solid rgba(0,0,0,.06)}
+      .quote p{margin:0 0 8px}
+      .quote .who{font-weight:600;opacity:.85}
+
+      /* Contact */
+      form{display:grid;gap:12px}
+      label{font-weight:600}
+      input,textarea{width:100%;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,.12);background:#fff;font:inherit}
+      textarea{min-height:120px}
+      .form-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;border:1px solid rgba(0,0,0,.06)}
+
+      footer{padding:40px 0 60px;color:rgba(0,0,0,.6);text-align:center}
+
+      /* Responsive */
+      @media (max-width:900px){
+        .hero-inner{grid-template-columns:1fr}
+        .card{grid-column:span 6}
+        .quote{grid-column:span 12}
+      }
+      @media (max-width:620px){
+        .card{grid-column:span 12}
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <!-- Replace logo.png with your actual logo filename -->
+          <img src="logo.png" alt="Illawarra Tool Co. logo" />
+          <h1>Illawarra Tool Co.</h1>
+        </div>
+        <nav>
+          <a href="#gallery">What we've got</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact" class="btn" style="padding:8px 14px">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container hero-inner">
+          <div>
+            <h2>Local tool hire — pickup or delivery across the Illawarra</h2>
+            <p>Need it for a weekend project or a short jobsite stint? Avoid the big upfront costs. Hire the right tool, when you need it.</p>
+            <div class="hero-bullets">
+              <div class="bullet"><span>✓</span> Fair, simple day & weekend rates</div>
+              <div class="bullet"><span>✓</span> Cleaned, tested and ready to work</div>
+              <div class="bullet"><span>✓</span> Local pickup in Wollongong</div>
+              <div class="bullet"><span>✓</span> Delivery available on request</div>
+            </div>
+            <a class="btn" href="#contact">Get a quote</a>
+          </div>
+          <div class="hero-card" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1516383607781-913a19294fd1?q=80&w=1600&auto=format&fit=crop" alt="Tools" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery -->
+      <section id="gallery" class="section">
+        <div class="container">
+          <h3>What we've got</h3>
+          <p class="lead">A rotating lineup of DIY and trade favourites. Ask if you don't see it here.</p>
+          <div class="grid">
+            <!-- Card 1 -->
+            <article class="card">
+              <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1600&auto=format&fit=crop" alt="Hammer drill" />
+              <div class="content">
+                <h4>Hammer Drill</h4>
+                <div class="pill">Day / Weekend</div>
+              </div>
+            </article>
+            <!-- Card 2 -->
+            <article class="card">
+              <img src="https://images.unsplash.com/photo-1581091014534-8987c1d2c793?q=80&w=1600&auto=format&fit=crop" alt="Pressure washer" />
+              <div class="content">
+                <h4>Pressure Washer</h4>
+                <div class="pill">Day / Weekend</div>
+              </div>
+            </article>
+            <!-- Card 3 -->
+            <article class="card">
+              <img src="https://images.unsplash.com/photo-1564640271413-26dd0d4d8b35?q=80&w=1600&auto=format&fit=crop" alt="Circular saw" />
+              <div class="content">
+                <h4>Circular Saw</h4>
+                <div class="pill">Day / Weekend</div>
+              </div>
+            </article>
+            <!-- Card 4 -->
+            <article class="card">
+              <img src="https://images.unsplash.com/photo-1560012057-4f03aa8359aa?q=80&w=1600&auto=format&fit=crop" alt="Air compressor" />
+              <div class="content">
+                <h4>Air Compressor</h4>
+                <div class="pill">Day / Weekend</div>
+              </div>
+            </article>
+            <!-- Card 5 -->
+            <article class="card">
+              <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbe9?q=80&w=1600&auto=format&fit=crop" alt="Nailer" />
+              <div class="content">
+                <h4>Nailer</h4>
+                <div class="pill">Day / Weekend</div>
+              </div>
+            </article>
+            <!-- Card 6 -->
+            <article class="card">
+              <img src="https://images.unsplash.com/photo-1604079628040-94301bb21b91?q=80&w=1600&auto=format&fit=crop" alt="Concrete mixer" />
+              <div class="content">
+                <h4>Concrete Mixer</h4>
+                <div class="pill">Day / Weekend</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials" class="section">
+        <div class="container">
+          <h3>What locals say</h3>
+          <div class="testi">
+            <figure class="quote">
+              <p>“Great rates and super friendly. Drill was like new and they dropped it to the site in Fairy Meadow.”</p>
+              <figcaption class="who">— Sam P.</figcaption>
+            </figure>
+            <figure class="quote">
+              <p>“Booked Friday arvo, had a pressure washer for the weekend. No fuss, easy pickup in Wollongong.”</p>
+              <figcaption class="who">— Bec L.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section">
+        <div class="container">
+          <h3>Contact us</h3>
+          <div class="form-card">
+            <form onsubmit="return handleSubmit(event)">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" required />
+              </div>
+              <div>
+                <label for="message">What do you need?</label>
+                <textarea id="message" name="message" placeholder="e.g., Need a hammer drill this Saturday, Wollongong delivery"></textarea>
+              </div>
+              <button class="btn" type="submit">Send enquiry</button>
+              <p id="formStatus" role="status" style="margin:8px 0 0"></p>
+            </form>
+            <p style="margin-top:10px;opacity:.8">Prefer socials? Find us on <a href="#">Instagram</a> or call <strong>0400 000 000</strong>.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">© <span id="year"></span> Illawarra Tool Co. • Tool Hire • Wollongong NSW</div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      function handleSubmit(e){
+        e.preventDefault();
+        const status = document.getElementById('formStatus');
+        status.textContent = 'Thanks! This demo form doesn\'t send yet. We\'ll wire it up next.';
+        status.style.color = 'var(--moss)';
+        e.target.reset();
+        return false;
+      }
+    </script>
+  </body>
+</html>
